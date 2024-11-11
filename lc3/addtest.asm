@@ -1,0 +1,17 @@
+.ORIG x3000
+
+
+LD R1, OPEA
+LD R2, OPEB
+ADD R1 R1 R2
+
+
+HALT
+
+OPEA .FILL 42
+OPEB .Fill 8
+
+
+
+
+.END

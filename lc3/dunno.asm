@@ -1,0 +1,21 @@
+	.ORIG x4000
+	LD R2, LOW_A
+	NOT R2, R2
+	ADD R2, R2, #1
+	LEA R0, STRG
+ L1	LDR R1, R0, #0
+	BRz DONE
+	ADD R3, R1, R2
+	BRnp SKIP
+	
+	LD R1, UPP_A
+	STR R1, R0, #0
+ SKIP	ADD R0, R0, #1
+	BRnzp L1
+ DONE 	LEA R0, STRG
+	PUTS
+	HALT
+ LOW_A	.FILL x61
+ STRG 	.STRINGZ "Salt and Pepper"
+ UPP_A 	.FILL x41
+	.END
